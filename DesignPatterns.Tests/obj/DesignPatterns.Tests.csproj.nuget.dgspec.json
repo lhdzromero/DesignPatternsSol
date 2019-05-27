@@ -1,0 +1,136 @@
+{
+  "format": 1,
+  "restore": {
+    "/projects/DesignPatternsSol/DesignPatterns.Tests/DesignPatterns.Tests.csproj": {}
+  },
+  "projects": {
+    "/projects/DesignPatternsSol/DesignPatterns.Tests/DesignPatterns.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/projects/DesignPatternsSol/DesignPatterns.Tests/DesignPatterns.Tests.csproj",
+        "projectName": "DesignPatterns.Tests",
+        "projectPath": "/projects/DesignPatternsSol/DesignPatterns.Tests/DesignPatterns.Tests.csproj",
+        "packagesPath": "/home/user/.nuget/packages/",
+        "outputPath": "/projects/DesignPatternsSol/DesignPatterns.Tests/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/user/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "/projects/DesignPatternsSol/DesignPatterns/DesignPatterns.csproj": {
+                "projectPath": "/projects/DesignPatternsSol/DesignPatterns/DesignPatterns.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[15.9.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[3.11.0, )"
+            },
+            "nunit": {
+              "target": "Package",
+              "version": "[3.11.0, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "/projects/DesignPatternsSol/DesignPatterns/DesignPatterns.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/projects/DesignPatternsSol/DesignPatterns/DesignPatterns.csproj",
+        "projectName": "DesignPatterns",
+        "projectPath": "/projects/DesignPatternsSol/DesignPatterns/DesignPatterns.csproj",
+        "packagesPath": "/home/user/.nuget/packages/",
+        "outputPath": "/projects/DesignPatternsSol/DesignPatterns/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/user/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Autofac": {
+              "target": "Package",
+              "version": "[4.9.2, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "System.ValueTuple": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "morelinq": {
+              "target": "Package",
+              "version": "[2.9.0, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
