@@ -1,5 +1,7 @@
 using System;
 using System.Diagnostics;
+using System.Collections.Generic;
+using MoreLinq;
 using System.Text;
 using static System.Console;
 
@@ -9,26 +11,82 @@ namespace DesignPatterns
     {
         static public int Area(Solid.Rectangule r) => r.Width * r.Height;
         
+        private static readonly List<Adapter.VectorObject> vectorObjects 
+            = new List<Adapter.VectorObject>
+            {
+                new Adapter.VectorRectangule(1,1,10,10),
+                new Adapter.VectorRectangule(3,3,6,6)
+            };
+        
         static void Main(string[] args)
         {
             Console.WriteLine("Course Designs Patterns");
             
-            //DemoBuilder();
-            //DemoFactories();
-            DemoPrototype();
+            var option = Demo.Adapter;
             
-            //DemoSingleton();
-              
-            //DemoSingleResponsability();
-            //DemoOpenClose();
-            //DemoLiskovSubstitution();
-            //DemoDependencyInversion();
+            switch(option){
+                case Demo.Adapter:
+                    DemoAdapter();
+                break;
+                
+                case Demo.Solid:
+                    DemoSingleResponsability();
+                    DemoOpenClose();
+                    DemoLiskovSubstitution();
+                    DemoDependencyInversion();
+                break;
+
+                case Demo.Builder:
+                    DemoBuilder();
+                break;
+                
+                case Demo.Factories:
+                    DemoFactories();
+                break;
+                
+                case Demo.Prototype:
+                    DemoPrototype();
+                break;
+                
+                case Demo.Singleton:      
+                    DemoSingleton();
+                break;
+            }
+        }
+        
+        
+        private static void Draw(){
+            foreach(var vo in vectorObjects){
+                foreach(var line in vo){
+                    var adapter = new Adapter.LineToPointAdapter(line);
+                    adapter.ForEach(DrawPoint);
+                }
+            }
+        }
+        
+        private static void DemoAdapter(){
+            WriteLine("Demo Adapter...");
+            
+            Draw();
+            Draw();
+        }
+        
+        public static void DrawPoint(Adapter.Point p){
+            Write(".");
         }
         
         private static void DemoSingleton(){
             var db = Singleton.SingletonDatabase.Instance;
             var city = "Tokyo";
             WriteLine($"{city} has population {db.GetPopulation(city):N}");
+            
+            //Monostate
+            var ceo = new Singleton.CEO();
+            ceo.Name = "Adam Smith";
+            ceo.Age = 55;
+            
+            var ceo2 = new Singleton.CEO();
+            WriteLine(ceo2);
         }
         
         
@@ -59,8 +117,7 @@ namespace DesignPatterns
             //drink.Consume();
             
             var drink = machine.MakeDrink();
-            drink.Consume();
-            
+            drink.Consume();    
         }
         
         private static void DemoBuilder(){
@@ -94,8 +151,6 @@ namespace DesignPatterns
                 .WorksAsA("quant")
                 .Build();
             WriteLine(me);
-            
-
             
             var employee = Builder.Employee
                                   .NewEmployee
@@ -188,5 +243,15 @@ namespace DesignPatterns
             sq.Width = 4;
             WriteLine($"{sq} has area {Area(sq)}");
         }
+    }
+    
+    [Flags]
+    enum Demo {
+        Solid     = 1,
+        Builder   = 2,
+        Factories = 3,
+        Prototype = 4,
+        Singleton = 5,
+        Adapter   = 6
     }
 }
