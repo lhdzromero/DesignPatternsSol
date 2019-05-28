@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using MoreLinq;
 using System.Text;
+using Autofac;
 using static System.Console;
 
 namespace DesignPatterns
@@ -22,7 +23,7 @@ namespace DesignPatterns
         {
             Console.WriteLine("Course Designs Patterns");
             
-            var option = Demo.Adapter;
+            var option = Demo.Bridge;
             
             switch(option){
                 case Demo.Adapter:
@@ -51,9 +52,43 @@ namespace DesignPatterns
                 case Demo.Singleton:      
                     DemoSingleton();
                 break;
+                
+                case Demo.Bridge:      
+                    DemoBridge();
+                break;
             }
         }
         
+        private static void DemoBridge(){
+            WriteLine("Demo Bridge...");
+            /*
+            //Bridge.IRenderer renderer = new Bridge.RasterRenderer();
+            Bridge.IRenderer renderer = new Bridge.VectorRenderer();
+            var circule = new Bridge.Circule(renderer, 5);
+            
+            circule.Draw();
+            circule.Resize(2);
+            circule.Draw();
+            */
+           
+            var cb = new ContainerBuilder();
+            cb.RegisterType<Bridge.VectorRenderer>().As<Bridge.IRenderer>().SingleInstance();
+            
+            cb.Register((c,p) =>
+                new Bridge.Circule(c.Resolve<Bridge.IRenderer>(), 
+                p.Positional<float>(0)));
+                
+                using(var c = cb.Build())
+                {
+                    var circule = c.Resolve<Bridge.Circule>(
+                        new PositionalParameter(0, 5.0f)
+                    );
+                    
+                    circule.Draw();
+                    circule.Resize(2.0f);
+                    circule.Draw();
+                }
+        }
         
         private static void Draw(){
             foreach(var vo in vectorObjects){
@@ -65,8 +100,7 @@ namespace DesignPatterns
         }
         
         private static void DemoAdapter(){
-            WriteLine("Demo Adapter...");
-            
+            WriteLine("Demo Adapter...");       
             Draw();
             Draw();
         }
@@ -252,6 +286,7 @@ namespace DesignPatterns
         Factories = 3,
         Prototype = 4,
         Singleton = 5,
-        Adapter   = 6
+        Adapter   = 6,
+        Bridge    = 7
     }
 }
