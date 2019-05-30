@@ -4,6 +4,6 @@ namespace DesignPatterns.Bridge
 {
     public interface IRenderer
     {
-        void RenderCircule(float radius);
+        void RenderCircle(float radius);
     }
 }

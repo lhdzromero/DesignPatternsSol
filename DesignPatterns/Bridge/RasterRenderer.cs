@@ -4,8 +4,8 @@ namespace DesignPatterns.Bridge
 {
     public class RasterRenderer : IRenderer
     {
-        public void RenderCircule(float radius){
-            Console.WriteLine($"Drawing pixels for circule with radius {radius}");
+        public void RenderCircle(float radius){
+            Console.WriteLine($"Drawing pixels for circle with radius {radius}");
         }
     }
 }

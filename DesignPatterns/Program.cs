@@ -23,11 +23,15 @@ namespace DesignPatterns
         {
             Console.WriteLine("Course Designs Patterns");
             
-            var option = Demo.Bridge;
+            var option = Demo.Composite;
             
             switch(option){
                 case Demo.Adapter:
                     DemoAdapter();
+                break;
+                
+                case Demo.Composite:
+                    DemoComposite();
                 break;
                 
                 case Demo.Solid:
@@ -59,34 +63,62 @@ namespace DesignPatterns
             }
         }
         
+        private static void DemoComposite(){
+            WriteLine("Demo Composite...");
+            
+            var drawing = new Composite.GraphicObject { Name = "My Drawing"};
+            drawing.Children.Add(new Composite.Square {Color = "Red"});
+            drawing.Children.Add(new Composite.Circle {Color = "Yellow"});
+            
+            var group = new Composite.GraphicObject();
+            group.Children.Add(new Composite.Circle {Color = "Blue"});
+            group.Children.Add(new Composite.Square {Color = "Blue"});
+            drawing.Children.Add(group);
+            
+            WriteLine(drawing);
+            
+            var neuron1 = new Composite.Neuron();
+            var neuron2 = new Composite.Neuron();
+            var layer1 = new Composite.NeuronLayer();
+            var layer2 = new Composite.NeuronLayer();
+            var layer3 = new Composite.NeuronLayer();
+            
+            
+            neuron1.ConnectTo(neuron2);
+            neuron1.ConnectTo(layer1);
+            layer1.ConnectTo(layer2);
+            neuron2.ConnectTo(layer3);
+            
+        }
+        
         private static void DemoBridge(){
             WriteLine("Demo Bridge...");
             /*
             //Bridge.IRenderer renderer = new Bridge.RasterRenderer();
             Bridge.IRenderer renderer = new Bridge.VectorRenderer();
-            var circule = new Bridge.Circule(renderer, 5);
+            var circle = new Bridge.Circle(renderer, 5);
             
-            circule.Draw();
-            circule.Resize(2);
-            circule.Draw();
+            circle.Draw();
+            circle.Resize(2);
+            circle.Draw();
             */
            
             var cb = new ContainerBuilder();
             cb.RegisterType<Bridge.VectorRenderer>().As<Bridge.IRenderer>().SingleInstance();
             
             cb.Register((c,p) =>
-                new Bridge.Circule(c.Resolve<Bridge.IRenderer>(), 
+                new Bridge.Circle(c.Resolve<Bridge.IRenderer>(), 
                 p.Positional<float>(0)));
                 
                 using(var c = cb.Build())
                 {
-                    var circule = c.Resolve<Bridge.Circule>(
+                    var circle = c.Resolve<Bridge.Circle>(
                         new PositionalParameter(0, 5.0f)
                     );
                     
-                    circule.Draw();
-                    circule.Resize(2.0f);
-                    circule.Draw();
+                    circle.Draw();
+                    circle.Resize(2.0f);
+                    circle.Draw();
                 }
         }
         
@@ -287,6 +319,7 @@ namespace DesignPatterns
         Prototype = 4,
         Singleton = 5,
         Adapter   = 6,
-        Bridge    = 7
+        Bridge    = 7,
+        Composite = 8
     }
 }
