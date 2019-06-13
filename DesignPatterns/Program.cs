@@ -23,7 +23,7 @@ namespace DesignPatterns
         {
             Console.WriteLine("Course Designs Patterns");
             
-            var option = Demo.Composite;
+            var option = Demo.Decorator;
             
             switch(option){
                 case Demo.Adapter:
@@ -60,7 +60,51 @@ namespace DesignPatterns
                 case Demo.Bridge:      
                     DemoBridge();
                 break;
+                
+                case Demo.Decorator:      
+                    DemoDecorator();
+                break;
             }
+        }
+        
+        private static void DemoDecorator(){
+            WriteLine("Demo Decorator...");
+            
+            var cb =  new Decorator.CodeBuilder();
+            
+            cb.AppendLine("class Foo")
+              .AppendLine("{")
+              .AppendLine("}");
+            WriteLine(cb);
+            
+            Decorator.MyStringBuilder s = "hello ";
+            s += "world";
+            s += "!!";
+            WriteLine(s);
+                  
+            var d = new Decorator.Dragon();
+            d.Weight = 123;
+            d.Fly();
+            d.Crawl();
+            
+            //Dynamic Decorator Composition
+            /*
+            var square = new Decorator.Square(1.23f);
+            WriteLine(square.AsString());
+            
+            var redSquare = new Decorator.ColoredShape(square , "red");
+            WriteLine(redSquare.AsString());
+            
+            var redHalfTransparentSquare = new Decorator.TransparentShape(redSquare, 0.5f);
+            WriteLine(redHalfTransparentSquare.AsString());
+            */
+           
+           var redSquare = new Decorator.ColoredShape<Decorator.Square>("red");
+           WriteLine(redSquare.AsString());
+           
+           var circle = new Decorator.TransparentShape<Decorator.ColoredShape<Decorator.Circle>>(0.4f);
+           WriteLine(circle.AsString());
+            
         }
         
         private static void DemoComposite(){
@@ -320,6 +364,7 @@ namespace DesignPatterns
         Singleton = 5,
         Adapter   = 6,
         Bridge    = 7,
-        Composite = 8
+        Composite = 8, 
+        Decorator = 9
     }
 }
