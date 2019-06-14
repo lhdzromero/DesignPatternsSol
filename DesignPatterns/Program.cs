@@ -23,7 +23,7 @@ namespace DesignPatterns
         {
             Console.WriteLine("Course Designs Patterns");
             
-            var option = Demo.Decorator;
+            var option = Demo.Flyweight;
             
             switch(option){
                 case Demo.Adapter:
@@ -64,9 +64,37 @@ namespace DesignPatterns
                 case Demo.Decorator:      
                     DemoDecorator();
                 break;
+                case Demo.Facade:
+                    DemoFacade();
+                break;
+                case Demo.Flyweight:
+                    DemoFlyweight();
+                break;
             }
         }
         
+        private static void DemoFlyweight(){
+            WriteLine("Demo Flyweight...");
+            var ft = new Flyweight.FormattedText("This is a brave new world");
+            ft.Capitalize(10, 15);
+            WriteLine(ft);
+            
+            var bft = new Flyweight.BetterFormatedText("This is a brave new world");
+            bft.GetRange(10, 15).Capitalize = true;
+            WriteLine(bft);
+            
+        }
+        
+        
+        private static void DemoFacade(){
+            WriteLine("Demo Facade...");
+            Facade.Subsystem1 s1 = new Facade.Subsystem1();
+            Facade.Subsystem2 s2 = new Facade.Subsystem2();
+            
+            Facade.Control ctrl = new Facade.Control(s1, s2);
+            Facade.Client.ClientCall(ctrl);
+        }
+    
         private static void DemoDecorator(){
             WriteLine("Demo Decorator...");
             
@@ -365,6 +393,9 @@ namespace DesignPatterns
         Adapter   = 6,
         Bridge    = 7,
         Composite = 8, 
-        Decorator = 9
+        Decorator = 9,
+        Facade    = 10,
+        Flyweight = 11
+        
     }
 }
