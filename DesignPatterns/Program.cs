@@ -23,7 +23,7 @@ namespace DesignPatterns
         {
             Console.WriteLine("Course Designs Patterns");
             
-            var option = Demo.Flyweight;
+            var option = Demo.Proxy;
             
             switch(option){
                 case Demo.Adapter:
@@ -67,10 +67,23 @@ namespace DesignPatterns
                 case Demo.Facade:
                     DemoFacade();
                 break;
+                
                 case Demo.Flyweight:
                     DemoFlyweight();
                 break;
+                
+                case Demo.Proxy:
+                    DemoProxy();
+                break;
             }
+        }
+        
+        
+        private static void DemoProxy(){
+            WriteLine("Demo Proxy...");
+            
+            Proxy.ICar car = new Proxy.CarProxy(new Proxy.Driver(22));
+            car.Drive();
         }
         
         private static void DemoFlyweight(){
@@ -395,7 +408,7 @@ namespace DesignPatterns
         Composite = 8, 
         Decorator = 9,
         Facade    = 10,
-        Flyweight = 11
-        
+        Flyweight = 11,
+        Proxy     = 12
     }
 }
