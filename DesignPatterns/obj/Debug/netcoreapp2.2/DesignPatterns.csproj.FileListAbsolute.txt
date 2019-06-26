@@ -59,3 +59,16 @@ E:/Cursos/C#/DesignPatterns/obj/Debug/netcoreapp2.2/DesignPatterns.pdb
 /projects/DesignPatternsSol/DesignPatterns/obj/Debug/netcoreapp2.2/DesignPatterns.AssemblyInfo.cs
 /projects/DesignPatternsSol/DesignPatterns/obj/Debug/netcoreapp2.2/DesignPatterns.dll
 /projects/DesignPatternsSol/DesignPatterns/obj/Debug/netcoreapp2.2/DesignPatterns.pdb
+E:\Cursos\C#\DesignPatternsSol\DesignPatterns\bin\Debug\netcoreapp2.2\temp\capitals.txt
+E:\Cursos\C#\DesignPatternsSol\DesignPatterns\bin\Debug\netcoreapp2.2\temp\Journal.txt
+E:\Cursos\C#\DesignPatternsSol\DesignPatterns\bin\Debug\netcoreapp2.2\DesignPatterns.deps.json
+E:\Cursos\C#\DesignPatternsSol\DesignPatterns\bin\Debug\netcoreapp2.2\DesignPatterns.runtimeconfig.json
+E:\Cursos\C#\DesignPatternsSol\DesignPatterns\bin\Debug\netcoreapp2.2\DesignPatterns.runtimeconfig.dev.json
+E:\Cursos\C#\DesignPatternsSol\DesignPatterns\bin\Debug\netcoreapp2.2\DesignPatterns.dll
+E:\Cursos\C#\DesignPatternsSol\DesignPatterns\bin\Debug\netcoreapp2.2\DesignPatterns.pdb
+E:\Cursos\C#\DesignPatternsSol\DesignPatterns\obj\Debug\netcoreapp2.2\DesignPatterns.csprojAssemblyReference.cache
+E:\Cursos\C#\DesignPatternsSol\DesignPatterns\obj\Debug\netcoreapp2.2\DesignPatterns.csproj.CoreCompileInputs.cache
+E:\Cursos\C#\DesignPatternsSol\DesignPatterns\obj\Debug\netcoreapp2.2\DesignPatterns.AssemblyInfoInputs.cache
+E:\Cursos\C#\DesignPatternsSol\DesignPatterns\obj\Debug\netcoreapp2.2\DesignPatterns.AssemblyInfo.cs
+E:\Cursos\C#\DesignPatternsSol\DesignPatterns\obj\Debug\netcoreapp2.2\DesignPatterns.dll
+E:\Cursos\C#\DesignPatternsSol\DesignPatterns\obj\Debug\netcoreapp2.2\DesignPatterns.pdb

@@ -84,6 +84,10 @@ namespace DesignPatterns
             
             Proxy.ICar car = new Proxy.CarProxy(new Proxy.Driver(22));
             car.Drive();
+
+            var c = new Proxy.Creature();
+            c.Agility = 10;
+            c.Agility = 10;
         }
         
         private static void DemoFlyweight(){

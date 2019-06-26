@@ -1,0 +1,4 @@
+# No trackear los archivos de configuracion de visual studio code
+.vscode
+.vscode/launch.json
+.vscode/tasks.json
