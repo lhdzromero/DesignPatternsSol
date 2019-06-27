@@ -1,29 +1,29 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Cursos\\C#\\DesignPatternsSol\\DesignPatterns\\DesignPatterns.csproj": {}
+    "/projects/DesignPatternsSol/DesignPatterns/DesignPatterns.csproj": {}
   },
   "projects": {
-    "E:\\Cursos\\C#\\DesignPatternsSol\\DesignPatterns\\DesignPatterns.csproj": {
+    "/projects/DesignPatternsSol/DesignPatterns/DesignPatterns.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Cursos\\C#\\DesignPatternsSol\\DesignPatterns\\DesignPatterns.csproj",
+        "projectUniqueName": "/projects/DesignPatternsSol/DesignPatterns/DesignPatterns.csproj",
         "projectName": "DesignPatterns",
-        "projectPath": "E:\\Cursos\\C#\\DesignPatternsSol\\DesignPatterns\\DesignPatterns.csproj",
-        "packagesPath": "C:\\Users\\Luis\\.nuget\\packages\\",
-        "outputPath": "E:\\Cursos\\C#\\DesignPatternsSol\\DesignPatterns\\obj\\",
+        "projectPath": "/projects/DesignPatternsSol/DesignPatterns/DesignPatterns.csproj",
+        "packagesPath": "/home/user/.nuget/packages/",
+        "outputPath": "/projects/DesignPatternsSol/DesignPatterns/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Luis\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/user/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"
         ],
         "sources": {
-          "https://nuget.org/api/v2/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp2.2": {
