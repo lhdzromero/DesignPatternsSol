@@ -43,6 +43,10 @@
               "target": "Package",
               "version": "[4.9.2, )"
             },
+            "ImpromptuInterface": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
             "Microsoft.NETCore.App": {
               "suppressParent": "All",
               "target": "Package",

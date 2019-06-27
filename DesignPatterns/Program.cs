@@ -1,3 +1,5 @@
+using System.Reflection;
+using System.IO.Compression;
 using System;
 using System.Diagnostics;
 using System.Collections.Generic;
@@ -78,16 +80,37 @@ namespace DesignPatterns
             }
         }
         
-        
         private static void DemoProxy(){
             WriteLine("Demo Proxy...");
             
             Proxy.ICar car = new Proxy.CarProxy(new Proxy.Driver(22));
             car.Drive();
 
+            WriteLine("Property Proxy...");
             var c = new Proxy.Creature();
             c.Agility = 10;
             c.Agility = 10;
+
+            WriteLine("Value Proxy...");
+            WriteLine(10f * 5.Percent());
+            WriteLine(2.Percent() + 3.Percent());
+
+            WriteLine("Composite Proxy...");
+
+            var zombies2 = new Proxy.Zombies(100);
+            foreach (Proxy.Zombies.ZombieProxy z in zombies2)
+            {
+                z.X++;
+                ++z.Y;
+            } 
+
+            WriteLine("Dynamic Proxy Logging...");
+            var ba = Proxy.Log<Proxy.BankAccount>.As<Proxy.IBankAccount>();
+
+            ba.Deposit(100);
+            ba.Withdraw(50);
+
+            WriteLine(ba);
         }
         
         private static void DemoFlyweight(){
@@ -99,7 +122,6 @@ namespace DesignPatterns
             var bft = new Flyweight.BetterFormatedText("This is a brave new world");
             bft.GetRange(10, 15).Capitalize = true;
             WriteLine(bft);
-            
         }
         
         
