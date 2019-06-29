@@ -25,7 +25,7 @@ namespace DesignPatterns
         {
             Console.WriteLine("Course Designs Patterns");
             
-            var option = Demo.Proxy;
+            var option = Demo.ChainOfResponsability;
             
             switch(option){
                 case Demo.Adapter:
@@ -77,6 +77,10 @@ namespace DesignPatterns
                 case Demo.Proxy:
                     DemoProxy();
                 break;
+
+                case Demo.ChainOfResponsability:
+                    DemoChainOfResponsability();
+                break;
             }
         }
         
@@ -111,6 +115,25 @@ namespace DesignPatterns
             ba.Withdraw(50);
 
             WriteLine(ba);
+        }
+
+        private static void DemoChainOfResponsability(){
+            WriteLine("Demo Chain Of Responsability...");
+            var goblin = new ChainOfResponsability.Creature("Goblin", 2, 2);
+            WriteLine(goblin);
+
+            var root = new ChainOfResponsability.CreatureModifier(goblin);
+
+            root.Add(new ChainOfResponsability.NoBonusesModifier(goblin));
+
+            WriteLine("Let's double the goblin's attack");
+            root.Add(new ChainOfResponsability.DoubleAttackModifier(goblin));
+
+            WriteLine("Let's increase the goblin's defense");
+            root.Add(new ChainOfResponsability.IncreasedDefenseModifier(goblin));
+
+            root.Handle();
+            WriteLine(goblin);
         }
         
         private static void DemoFlyweight(){
@@ -193,7 +216,6 @@ namespace DesignPatterns
             var layer1 = new Composite.NeuronLayer();
             var layer2 = new Composite.NeuronLayer();
             var layer3 = new Composite.NeuronLayer();
-            
             
             neuron1.ConnectTo(neuron2);
             neuron1.ConnectTo(layer1);
@@ -365,10 +387,8 @@ namespace DesignPatterns
             relationsships.AddParentAndChild(parent, child1);
             relationsships.AddParentAndChild(parent, child2);
             
-            new Solid.Research(relationsships);
-            
+            new Solid.Research(relationsships);    
         }
-        
         
         private static void DemoSingleResponsability() {
             var j = new Solid.Journal();
@@ -435,6 +455,7 @@ namespace DesignPatterns
         Decorator = 9,
         Facade    = 10,
         Flyweight = 11,
-        Proxy     = 12
+        Proxy     = 12,
+        ChainOfResponsability = 13
     }
 }
