@@ -134,6 +134,22 @@ namespace DesignPatterns
 
             root.Handle();
             WriteLine(goblin);
+
+            WriteLine("Broker Chain...");
+            var game = new ChainOfResponsability.Game();
+            var goblin2 = new ChainOfResponsability.CreatureDos(game, "Strong Goblin", 3, 3);
+            WriteLine(goblin2);
+
+            using (new ChainOfResponsability.DoubleAttackModifierDos(game, goblin2))
+            {
+                WriteLine(goblin2);
+                using (new ChainOfResponsability.IncreaseDefenseModifierDos(game, goblin2))
+                {
+                    WriteLine(goblin2);
+                }
+            }
+
+            WriteLine(goblin2);
         }
         
         private static void DemoFlyweight(){
