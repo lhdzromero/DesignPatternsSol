@@ -1,3 +1,5 @@
+using System.Linq;
+using System.Net;
 using System.Reflection;
 using System.IO.Compression;
 using System;
@@ -25,7 +27,7 @@ namespace DesignPatterns
         {
             Console.WriteLine("Course Designs Patterns");
             
-            var option = Demo.ChainOfResponsability;
+            var option = Demo.Command;
             
             switch(option){
                 case Demo.Adapter:
@@ -81,7 +83,36 @@ namespace DesignPatterns
                 case Demo.ChainOfResponsability:
                     DemoChainOfResponsability();
                 break;
+
+                case Demo.Command:
+                    DemoCommand();
+                break;
             }
+        }
+
+        private static void DemoCommand(){
+            WriteLine("Demo Command...");
+
+            var ba = new Command.BankAccount();
+            var commands = new List<Command.BankAccountCommand>{
+                new Command.BankAccountCommand(ba, Command.BankAccountCommand.Action.Deposit, 100),
+                new Command.BankAccountCommand(ba, Command.BankAccountCommand.Action.Withdraw, 50)
+                //new Command.BankAccountCommand(ba, Command.BankAccountCommand.Action.Withdraw, 1000)
+            };
+
+            WriteLine(ba);
+
+            foreach (var c in commands)
+                c.Call();
+            
+            WriteLine(ba);
+
+            foreach (var c in Enumerable.Reverse(commands))
+                c.Undo();
+
+            WriteLine(ba);
+
+
         }
         
         private static void DemoProxy(){
@@ -472,6 +503,7 @@ namespace DesignPatterns
         Facade    = 10,
         Flyweight = 11,
         Proxy     = 12,
-        ChainOfResponsability = 13
+        ChainOfResponsability = 13,
+        Command = 14
     }
 }
